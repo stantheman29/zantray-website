@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zantray — Konekte ak moun ou renmen yo</title>
+  <meta name="description" content="Zantray is a messaging app built for the Haitian community with AI translation, document scanning and real-time messaging in 4 languages."/>
+  <meta property="og:title" content="Zantray — Connect with your community"/>
+  <meta property="og:description" content="Messaging app for the Haitian community with Saj AI — your AI assistant in 4 languages"/>
+  <meta property="og:image" content="https://zantray.com/preview.png"/>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+    /* ── HERO ── */
+    .hero { background: #FF6B35; padding: 64px 24px 0; text-align: center; position: relative; overflow: hidden; }
+    .hero-circle1 { position: absolute; top: -80px; right: -80px; width: 350px; height: 350px; border-radius: 50%; background: rgba(255,255,255,0.07); pointer-events: none; }
+    .hero-circle2 { position: absolute; bottom: 40px; left: -100px; width: 250px; height: 250px; border-radius: 50%; background: rgba(255,214,0,0.08); pointer-events: none; }
+    .eyebrow { display: inline-block; background: #FFD600; color: #2D1B00; font-size: 12px; font-weight: 700; padding: 5px 16px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.5px; }
+    .hero h1 { font-size: clamp(38px, 8vw, 64px); font-weight: 900; color: #fff; line-height: 1.05; letter-spacing: -2px; margin-bottom: 14px; position: relative; z-index: 1; }
+    .hero h1 span { color: #FFD600; }
+    .hero p { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 10px; }
+    .hero p.sub { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 36px; }
+    .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 52px; position: relative; z-index: 1; }
+    .btn-dark { display: flex; align-items: center; gap: 10px; background: #000; color: #fff; padding: 13px 22px; border-radius: 14px; text-decoration: none; }
+    .btn-light { display: flex; align-items: center; gap: 10px; background: #fff; color: #000; padding: 13px 22px; border-radius: 14px; text-decoration: none; }
+    .btn-icon { font-size: 26px; }
+    .btn-small { font-size: 10px; opacity: 0.65; display: block; }
+    .btn-big { font-size: 15px; font-weight: 700; display: block; }
+
+    /* ── PHONES ── */
+    .phones { display: flex; justify-content: center; align-items: flex-end; gap: 0; position: relative; z-index: 1; }
+    .phone { width: 148px; background: #1C1C2E; border-radius: 28px; padding: 10px 8px; border: 2.5px solid rgba(255,255,255,0.15); margin: 0 -12px; }
+    .phone.center { transform: translateY(-24px); z-index: 2; border-color: rgba(255,214,0,0.4); }
+    .phone-screen { background: #FFF8F0; border-radius: 18px; overflow: hidden; min-height: 190px; }
+
+    /* ── PHONE CONTENT ── */
+    .ph-topbar { background: #FF6B35; padding: 8px 10px; }
+    .ph-topbar-title { font-size: 11px; font-weight: 700; color: #fff; }
+    .ph-topbar-sub { font-size: 7.5px; color: rgba(255,255,255,0.7); }
+    .ph-msgs { padding: 6px 8px; }
+    .ph-row { margin-bottom: 5px; }
+    .ph-row.me { text-align: right; }
+    .ph-bubble { display: inline-block; font-size: 8px; padding: 5px 9px; border-radius: 10px; line-height: 1.5; max-width: 85px; }
+    .ph-bubble.them { background: #fff; color: #2D1B00; }
+    .ph-bubble.me { background: #FF6B35; color: #fff; }
+    .ph-saj-top { background: #7B2FBE; padding: 8px 10px; display: flex; align-items: center; gap: 6px; }
+    .ph-saj-brain { width: 20px; height: 20px; border-radius: 6px; background: rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; }
+    .ph-saj-title { font-size: 10px; font-weight: 700; color: #fff; }
+    .ph-saj-sub { font-size: 7px; color: rgba(255,255,255,0.6); }
+    .ph-saj-bubble { margin: 5px 8px; border-radius: 9px; padding: 5px 8px; font-size: 7.5px; line-height: 1.5; }
+    .ph-status-row { display: flex; align-items: center; gap: 6px; padding: 6px 8px; }
+    .ph-avatar { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; border: 2px solid #FFD600; }
+    .ph-status-name { font-size: 8.5px; font-weight: 700; color: #2D1B00; }
+    .ph-status-time { font-size: 7px; color: #8B6347; }
+    .ph-status-card { margin: 0 8px 6px; border-radius: 10px; padding: 10px; font-size: 8px; font-weight: 700; color: #fff; text-align: center; line-height: 1.5; }
+    .ph-reactions { padding: 0 8px; display: flex; gap: 4px; }
+    .ph-react-btn { background: #FFF8F0; border: 0.5px solid #F0D5B8; border-radius: 6px; padding: 3px 7px; font-size: 7.5px; color: #FF6B35; }
+
+    /* ── FEATURES ── */
+    .features { padding: 64px 24px; background: #FFF8F0; }
+    .section-title { font-size: clamp(24px, 5vw, 36px); font-weight: 900; color: #FF6B35; text-align: center; margin-bottom: 8px; letter-spacing: -1px; }
+    .section-sub { font-size: 15px; color: #8B6347; text-align: center; margin-bottom: 40px; }
+    .feat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; max-width: 800px; margin: 0 auto; }
+    .feat-card { background: #fff; border-radius: 18px; padding: 22px 18px; border: 0.5px solid #F0D5B8; }
+    .feat-icon { font-size: 30px; margin-bottom: 12px; }
+    .feat-title { font-size: 14px; font-weight: 700; color: #2D1B00; margin-bottom: 6px; }
+    .feat-desc { font-size: 12px; color: #8B6347; line-height: 1.6; }
+
+    /* ── SAJ AI ── */
+    .saj-section { background: #7B2FBE; padding: 64px 24px; text-align: center; }
+    .saj-title { font-size: clamp(26px, 5vw, 38px); font-weight: 900; color: #fff; margin-bottom: 8px; letter-spacing: -1px; }
+    .saj-sub { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 32px; }
+    .langs { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .lang-pill { background: rgba(255,255,255,0.15); border: 0.5px solid rgba(255,255,255,0.2); border-radius: 30px; padding: 10px 20px; font-size: 14px; color: #fff; font-weight: 500; }
+    .saj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; max-width: 700px; margin: 0 auto 40px; }
+    .saj-card { background: rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 16px; text-align: left; border: 0.5px solid rgba(255,255,255,0.15); }
+    .saj-card-icon { font-size: 26px; margin-bottom: 10px; }
+    .saj-card-num { font-size: 10px; font-weight: 700; color: #FFD600; letter-spacing: 1px; margin-bottom: 4px; }
+    .saj-card-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .saj-card-desc { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+    /* ── HOW TO USE SAJ ── */
+    .how-section { padding: 64px 24px; background: #fff; }
+    .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; max-width: 800px; margin: 0 auto; }
+    .how-card { background: #FFF8F0; border-radius: 18px; padding: 22px 18px; border: 0.5px solid #F0D5B8; }
+    .how-step { font-size: 11px; font-weight: 700; color: #FF6B35; letter-spacing: 1px; margin-bottom: 8px; }
+    .how-title { font-size: 14px; font-weight: 700; color: #2D1B00; margin-bottom: 6px; }
+    .how-desc { font-size: 12px; color: #8B6347; line-height: 1.6; }
+    .how-example { margin-top: 10px; background: #fff; border-radius: 10px; padding: 8px 12px; font-size: 11px; color: #7B2FBE; border: 0.5px solid #F3E8FF; font-style: italic; }
+
+    /* ── DOWNLOAD ── */
+    .download { background: #FFF8F0; padding: 64px 24px; text-align: center; border-top: 0.5px solid #F0D5B8; }
+
+    /* ── FOOTER ── */
+    footer { background: #2D1B00; padding: 40px 24px; text-align: center; }
+    .footer-logo { font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 6px; }
+    .footer-logo span { color: #FFD600; }
+    .footer-tagline { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 20px; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
+    .footer-link { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; }
+    .footer-link:hover { color: #FF6B35; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+    @media (max-width: 480px) {
+      .phone { width: 120px; }
+      .phones { gap: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-circle1"></div>
+  <div class="hero-circle2"></div>
+  <div style="position:relative;z-index:1;">
+    <div class="eyebrow">🌴 Now available on iOS & Android</div>
+    <h1>Zan<span>tray</span><br/>For the<br/>Community</h1>
+    <p>Konekte ak moun ou renmen yo</p>
+    <p class="sub">Connect with the people you love — in your language</p>
+    <div class="btns">
+      <a href="#" class="btn-dark">
+        <span class="btn-icon">🍎</span>
+        <div><span class="btn-small">Download on the</span><span class="btn-big">App Store</span></div>
+      </a>
+      <a href="#" class="btn-light">
+        <span class="btn-icon">🤖</span>
+        <div><span class="btn-small" style="color:#555;">Get it on</span><span class="btn-big">Google Play</span></div>
+      </a>
+    </div>
+
+    <!-- Phone mockups -->
+    <div class="phones">
+      <!-- Chat -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="ph-topbar">
+            <div class="ph-topbar-title">Mama</div>
+            <div class="ph-topbar-sub">● Online</div>
+          </div>
+          <div class="ph-msgs">
+            <div class="ph-row"><div class="ph-bubble them">Ki jan ou ye pitit?</div></div>
+            <div class="ph-row me"><div class="ph-bubble me">Mwen byen mama! ❤️</div></div>
+            <div class="ph-row"><div class="ph-bubble them">Mèsi Bondye 🙏</div></div>
+            <div class="ph-row me"><div class="ph-bubble me">Wi mama, nou pale!</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Saj AI (center, elevated) -->
+      <div class="phone center">
+        <div class="phone-screen">
+          <div class="ph-saj-top">
+            <div class="ph-saj-brain">🧠</div>
+            <div>
+              <div class="ph-saj-title">Saj AI</div>
+              <div class="ph-saj-sub">🇭🇹🇺🇸🇫🇷🇪🇸</div>
+            </div>
+          </div>
+          <div class="ph-saj-bubble" style="background:rgba(123,47,190,0.08);color:#2D1B00;">Bonjou! Ask me anything in any language!</div>
+          <div style="padding:0 8px;margin-bottom:4px;"><div style="background:#FF6B35;border-radius:8px;padding:5px 9px;font-size:8px;color:#fff;">How do I apply for a green card? 🇺🇸</div></div>
+          <div class="ph-saj-bubble" style="background:#7B2FBE;color:#fff;">
+            Green card steps:<br/>
+            1. Check eligibility<br/>
+            2. File Form I-485<br/>
+            3. Biometrics appointment<br/>
+            <span style="color:#FFD600;">📚 uscis.gov</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status -->
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="ph-topbar">
+            <div class="ph-topbar-title">Status</div>
+            <div class="ph-topbar-sub">Recent updates</div>
+          </div>
+          <div class="ph-status-row">
+            <div class="ph-avatar" style="background:#7B2FBE;">M</div>
+            <div>
+              <div class="ph-status-name">Mama</div>
+              <div class="ph-status-time">2m ago · ❤️2 · 💬1</div>
+            </div>
+          </div>
+          <div class="ph-status-card" style="background:#7B2FBE;">Mèsi Bondye pou tout bagay! 🙏</div>
+          <div class="ph-reactions">
+            <div class="ph-react-btn">❤️ 2</div>
+            <div class="ph-react-btn" style="color:#8B6347;">💬 Reply</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ── -->
+<section class="features">
+  <h2 class="section-title">Everything you need to stay connected</h2>
+  <p class="section-sub">Built for the Haitian community — and everyone who loves them</p>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon">💬</div>
+      <div class="feat-title">Real-time messaging</div>
+      <p class="feat-desc">Send messages instantly with typing indicators and double checkmarks</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🧠</div>
+      <div class="feat-title">Saj AI assistant</div>
+      <p class="feat-desc">Your personal AI that speaks 4 languages and answers anything</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📄</div>
+      <div class="feat-title">Document scanner</div>
+      <p class="feat-desc">Photograph any document — Saj AI reads, translates and explains it</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">⭕</div>
+      <div class="feat-title">Status updates</div>
+      <p class="feat-desc">Share photos and text that disappear after 24 hours with reactions</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">❤️</div>
+      <div class="feat-title">React & comment</div>
+      <p class="feat-desc">React with emojis and leave comments on anyone's status</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🌙</div>
+      <div class="feat-title">Dark mode</div>
+      <p class="feat-desc">Beautiful dark and light themes that are easy on your eyes</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔒</div>
+      <div class="feat-title">Privacy controls</div>
+      <p class="feat-desc">You decide who sees your status, last seen and read receipts</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🌍</div>
+      <div class="feat-title">4 languages</div>
+      <p class="feat-desc">Haitian Creole, English, French and Spanish — all fully supported</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SAJ AI ── -->
+<section class="saj-section">
+  <h2 class="saj-title">Meet Saj AI 🧠</h2>
+  <p class="saj-sub">Your brilliant AI assistant — built for the Haitian community</p>
+
+  <div class="langs">
+    <div class="lang-pill">🇭🇹 Haitian Creole</div>
+    <div class="lang-pill">🇺🇸 English</div>
+    <div class="lang-pill">🇫🇷 Français</div>
+    <div class="lang-pill">🇪🇸 Español</div>
+  </div>
+
+  <div class="saj-grid">
+    <div class="saj-card">
+      <div class="saj-card-icon">🌍</div>
+      <div class="saj-card-num">01 — TRANSLATE</div>
+      <div class="saj-card-title">Instant translation</div>
+      <p class="saj-card-desc">Translate between all 4 languages instantly. Perfect for bridging language gaps in your family.</p>
+    </div>
+    <div class="saj-card">
+      <div class="saj-card-icon">📄</div>
+      <div class="saj-card-num">02 — SCAN</div>
+      <div class="saj-card-title">Document scanner</div>
+      <p class="saj-card-desc">Take a photo of any document — bills, letters, legal forms — and Saj AI explains it in simple words.</p>
+    </div>
+    <div class="saj-card">
+      <div class="saj-card-icon">🏥</div>
+      <div class="saj-card-num">03 — ASK</div>
+      <div class="saj-card-title">Medical questions</div>
+      <p class="saj-card-desc">Ask about symptoms, medications and health tips. Saj AI provides reliable information with sources.</p>
+    </div>
+    <div class="saj-card">
+      <div class="saj-card-icon">⚖️</div>
+      <div class="saj-card-num">04 — LEGAL</div>
+      <div class="saj-card-title">Immigration help</div>
+      <p class="saj-card-desc">Understand green cards, work permits, and legal documents explained in your own language.</p>
+    </div>
+    <div class="saj-card">
+      <div class="saj-card-icon">💰</div>
+      <div class="saj-card-num">05 — FINANCE</div>
+      <div class="saj-card-title">Financial guidance</div>
+      <p class="saj-card-desc">Learn how to send money to Haiti, understand bills, and manage finances better.</p>
+    </div>
+    <div class="saj-card">
+      <div class="saj-card-icon">🍲</div>
+      <div class="saj-card-num">06 — CULTURE</div>
+      <div class="saj-card-title">Culture & recipes</div>
+      <p class="saj-card-desc">Get authentic Haitian recipes, cultural history, and community knowledge from Saj AI.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW TO USE SAJ AI ── -->
+<section class="how-section">
+  <h2 class="section-title">How to use Saj AI effectively</h2>
+  <p class="section-sub">Get the most out of your AI assistant — tips and tricks</p>
+  <div class="how-grid">
+    <div class="how-card">
+      <div class="how-step">TIP 01</div>
+      <div class="how-title">Ask in your language</div>
+      <p class="how-desc">You can type in Haitian Creole, English, French or Spanish. Saj AI understands all 4 perfectly.</p>
+      <div class="how-example">"Kijan pou m voye lajan ann Ayiti?"</div>
+    </div>
+    <div class="how-card">
+      <div class="how-step">TIP 02</div>
+      <div class="how-title">Scan any document</div>
+      <p class="how-desc">Tap the 📄 button and take a clear photo of your document in good lighting for best results.</p>
+      <div class="how-example">Try: Tax letters, medical bills, legal notices</div>
+    </div>
+    <div class="how-card">
+      <div class="how-step">TIP 03</div>
+      <div class="how-title">Be specific</div>
+      <p class="how-desc">The more detail you give Saj AI the better the answer. Include your situation for personalized help.</p>
+      <div class="how-example">"I have chest pain when I exercise. What could this be?"</div>
+    </div>
+    <div class="how-card">
+      <div class="how-step">TIP 04</div>
+      <div class="how-title">Check the sources</div>
+      <p class="how-desc">Saj AI always provides trusted source links. Click them to verify important information yourself.</p>
+      <div class="how-example">📚 cdc.gov · uscis.gov · britannica.com</div>
+    </div>
+    <div class="how-card">
+      <div class="how-step">TIP 05</div>
+      <div class="how-title">Save your history</div>
+      <p class="how-desc">All Saj AI conversations are saved. Tap 📜 History to find important information from past chats.</p>
+      <div class="how-example">Great for revisiting medical or legal advice</div>
+    </div>
+    <div class="how-card">
+      <div class="how-step">TIP 06</div>
+      <div class="how-title">Switch languages</div>
+      <p class="how-desc">Tap the flag icon in Saj AI to switch the response language anytime during your conversation.</p>
+      <div class="how-example">🇭🇹 → 🇺🇸 → 🇫🇷 → 🇪🇸 instantly!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DOWNLOAD ── -->
+<section class="download">
+  <div class="eyebrow" style="background:#FF6B35;color:#fff;">🚀 Free Download</div>
+  <h2 class="section-title" style="margin-top:16px;">Ready to connect?</h2>
+  <p class="section-sub">Download Zantray free on iOS and Android today</p>
+  <div class="btns">
+    <a href="#" class="btn-dark">
+      <span class="btn-icon">🍎</span>
+      <div><span class="btn-small">Download on the</span><span class="btn-big">App Store</span></div>
+    </a>
+    <a href="#" class="btn-light" style="border:1.5px solid #E0E0E0;">
+      <span class="btn-icon">🤖</span>
+      <div><span class="btn-small" style="color:#555;">Get it on</span><span class="btn-big">Google Play</span></div>
+    </a>
+  </div>
+  <p style="font-size:13px;color:#8B6347;margin-top:16px;">Questions? Email us at <a href="mailto:zantray.support@gmail.com" style="color:#FF6B35;">zantray.support@gmail.com</a></p>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Zan<span>tray</span></div>
+  <p class="footer-tagline">Konekte ak moun ou renmen yo</p>
+  <div class="footer-links">
+    <a href="#" class="footer-link">Privacy Policy</a>
+    <a href="#" class="footer-link">Terms of Service</a>
+    <a href="#" class="footer-link">Help & Support</a>
+    <a href="#" class="footer-link">Contact Us</a>
+  </div>
+  <p class="footer-copy">© 2026 Zantray. Made with ❤️ for the Haitian community.</p>
+</footer>
+
+</body>
+</html>
