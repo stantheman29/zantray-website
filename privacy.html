@@ -3,84 +3,151 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy & Terms — Zantray</title>
+  <title>Privacy Policy — Zantray</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #FFF8F0; color: #2D1B00; }
-    .header { background: #FF6B35; padding: 20px 24px; }
+    header { background: #FF6B35; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 24px; font-weight: 900; color: #fff; text-decoration: none; }
     .logo span { color: #FFD600; }
-    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
-    h1 { font-size: 32px; font-weight: 900; color: #FF6B35; margin-bottom: 8px; }
-    h2 { font-size: 18px; font-weight: 700; color: #2D1B00; margin: 32px 0 10px; }
-    p { font-size: 15px; line-height: 1.8; color: #5a3e2b; margin-bottom: 12px; }
-    .updated { font-size: 13px; color: #8B6347; margin-bottom: 32px; }
-    .highlight { background: #fff; border-left: 4px solid #FF6B35; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0; }
-    .highlight p { margin: 0; font-weight: 500; }
-    footer { background: #2D1B00; padding: 24px; text-align: center; }
-    footer p { font-size: 13px; color: rgba(255,255,255,0.4); }
+    .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+    h1 { font-size: 32px; font-weight: 900; color: #2D1B00; margin-bottom: 8px; }
+    .subtitle { font-size: 14px; color: #C4956A; margin-bottom: 40px; }
+    h2 { font-size: 20px; font-weight: 700; color: #FF6B35; margin: 32px 0 12px; }
+    p { font-size: 15px; line-height: 1.7; color: #4A3520; margin-bottom: 12px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    ul li { font-size: 15px; line-height: 1.7; color: #4A3520; margin-bottom: 6px; }
+    .highlight { background: #FFF3E0; border-left: 4px solid #FF6B35; padding: 16px 20px; border-radius: 0 10px 10px 0; margin: 16px 0; }
+    .highlight p { margin: 0; font-weight: 600; }
+    footer { background: #2D1B00; padding: 30px 24px; text-align: center; margin-top: 60px; }
+    footer p { color: rgba(255,255,255,0.4); font-size: 13px; }
     footer a { color: #FF6B35; text-decoration: none; }
+    .badge { display: inline-block; background: #FF6B35; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 20px; margin-bottom: 8px; }
   </style>
 </head>
 <body>
 
-<div class="header">
+<header>
   <a href="index.html" class="logo">Zan<span>tray</span></a>
-</div>
+  <span style="color:rgba(255,255,255,0.7);font-size:13px">Privacy Policy</span>
+</header>
 
 <div class="container">
-  <h1>Privacy Policy & Terms</h1>
-  <p class="updated">Last updated: May 2026</p>
+  <div class="badge">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="subtitle">Last updated: May 20, 2026 · Effective immediately</p>
 
   <div class="highlight">
-    <p>🌴 Zantray is a messaging app built for the Haitian community. We are committed to protecting your privacy and being transparent about how we use your data.</p>
+    <p>🔒 Your privacy matters to us. Zantray is built for the Haitian community and we are committed to protecting your personal information.</p>
   </div>
 
-  <h2>📱 SMS & OTP Opt-In Policy</h2>
-  <p>Zantray uses SMS one-time passwords (OTP) solely for account verification purposes. Here is how our opt-in process works:</p>
-  <p><strong>How users opt in:</strong> Users voluntarily enter their phone number on the Zantray login screen and tap the <strong>"Send Verification Code"</strong> button. This action constitutes explicit opt-in consent to receive a one-time SMS verification code.</p>
-  <p><strong>What we send:</strong> We only send a single 6-digit verification code via SMS. This is used exclusively to verify the user's identity during login. We do not send marketing messages, promotional content, or any other unsolicited SMS.</p>
-  <p><strong>Frequency:</strong> SMS messages are only sent when a user explicitly requests a verification code by tapping the button. Users are never automatically subscribed to any messaging program.</p>
-  <p><strong>How to opt out:</strong> Users can stop receiving SMS messages at any time by simply not requesting a verification code. No further action is required.</p>
+  <h2>1. Who We Are</h2>
+  <p>Zantray is a messaging application developed and operated by <strong>4EPENG LLC</strong>. We connect the Haitian community and beyond through messaging, status updates, and AI-powered features.</p>
+  <p><strong>Contact:</strong> zantray.support@gmail.com</p>
 
-  <div class="highlight">
-    <p>📋 By entering your phone number and tapping "Send Verification Code" on the Zantray app, you agree to receive a one-time SMS verification code for account authentication purposes only.</p>
-  </div>
+  <h2>2. Information We Collect</h2>
+  <p>When you create a Zantray account, we collect the following information:</p>
+  <ul>
+    <li><strong>Full Name</strong> — Required to identify you on the platform</li>
+    <li><strong>Email Address</strong> — Required for account creation and login</li>
+    <li><strong>Password</strong> — Encrypted and stored securely using bcrypt</li>
+    <li><strong>Date of Birth</strong> — Optional, used to personalize your experience</li>
+    <li><strong>Gender</strong> — Optional, used for analytics purposes only</li>
+    <li><strong>Phone Number</strong> — Optional, used for account verification</li>
+    <li><strong>Profile Photo</strong> — Optional, displayed on your profile</li>
+    <li><strong>Bio</strong> — Optional, displayed on your public profile</li>
+  </ul>
 
-  <h2>🔒 Data We Collect</h2>
-  <p>We collect the following information to provide the Zantray service:</p>
-  <p><strong>Phone number:</strong> Used for account creation and login verification via OTP SMS.</p>
-  <p><strong>Name and profile photo:</strong> Displayed to your contacts within the app. You choose what to share.</p>
-  <p><strong>Messages:</strong> Stored securely to enable real-time messaging between users.</p>
-  <p><strong>Status updates:</strong> Shared with other Zantray users and automatically deleted after 24 hours.</p>
-  <p><strong>Preferred language:</strong> Stored to personalize your Saj AI experience.</p>
+  <h2>3. Information Collected Automatically</h2>
+  <p>When you use Zantray, we automatically collect:</p>
+  <ul>
+    <li><strong>IP Address</strong> — Used to determine your approximate location for analytics</li>
+    <li><strong>Approximate Location</strong> — Country and city level only (not precise GPS)</li>
+    <li><strong>Device Information</strong> — Device type, operating system, app version</li>
+    <li><strong>Usage Data</strong> — Messages sent, statuses posted, Saj AI conversations</li>
+    <li><strong>Push Notification Token</strong> — Used to send you notifications</li>
+  </ul>
 
-  <h2>🧠 Saj AI Data</h2>
-  <p>Conversations with Saj AI are stored to allow you to access your history. We do not share your Saj AI conversations with third parties. Your conversations are private and only accessible by you.</p>
+  <h2>4. How We Use Your Information</h2>
+  <p>We use the information we collect to:</p>
+  <ul>
+    <li>Create and manage your Zantray account</li>
+    <li>Enable real-time messaging and status features</li>
+    <li>Power Saj AI — our AI assistant built on Claude by Anthropic</li>
+    <li>Send you push notifications for messages, reactions and comments</li>
+    <li>Improve our app through anonymous analytics</li>
+    <li>Provide customer support</li>
+    <li>Comply with legal obligations</li>
+  </ul>
 
-  <h2>🔐 How We Protect Your Data</h2>
-  <p>All data is stored securely using MongoDB Atlas with industry-standard encryption. We use JWT tokens for authentication and never store plain-text passwords. Your phone number is never shared with third parties.</p>
+  <h2>5. Saj AI & Third-Party AI</h2>
+  <p>Zantray uses <strong>Saj AI</strong>, powered by Claude (Anthropic) for conversations, document scanning, translation, and image generation. When you use Saj AI:</p>
+  <ul>
+    <li>Your messages are sent to Anthropic's API for processing</li>
+    <li>Conversations may be saved to your account for history</li>
+    <li>Images are generated via Replicate's API</li>
+    <li>We do not sell your Saj AI conversations to third parties</li>
+  </ul>
 
-  <h2>📤 Data Sharing</h2>
-  <p>We do not sell, trade, or share your personal information with third parties except as required by law. We use Twilio to deliver SMS verification codes — your phone number is shared with Twilio solely for this purpose.</p>
+  <h2>6. Data Storage & Security</h2>
+  <p>Your data is stored securely on:</p>
+  <ul>
+    <li><strong>MongoDB Atlas</strong> — Encrypted cloud database</li>
+    <li><strong>Render</strong> — Secure cloud hosting</li>
+  </ul>
+  <p>Passwords are never stored in plain text — they are hashed using bcrypt encryption. We use JWT tokens for secure authentication.</p>
 
-  <h2>🗑️ Data Deletion</h2>
-  <p>You can request deletion of your account and all associated data at any time by contacting us at <a href="mailto:zantray.support@gmail.com" style="color:#FF6B35;">zantray.support@gmail.com</a>. We will process your request within 30 days.</p>
+  <h2>7. Data Sharing</h2>
+  <p>We do <strong>not</strong> sell your personal information to third parties. We only share data with:</p>
+  <ul>
+    <li><strong>Anthropic</strong> — For Saj AI conversation processing</li>
+    <li><strong>Replicate</strong> — For AI image generation</li>
+    <li><strong>Expo/Firebase</strong> — For push notifications</li>
+    <li><strong>Law enforcement</strong> — Only when legally required</li>
+  </ul>
 
-  <h2>👶 Children's Privacy</h2>
-  <p>Zantray is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+  <h2>8. Your Rights</h2>
+  <p>You have the right to:</p>
+  <ul>
+    <li>Access your personal data at any time</li>
+    <li>Update or correct your information in the app</li>
+    <li>Delete your account and all associated data</li>
+    <li>Opt out of push notifications in Settings</li>
+    <li>Request a copy of your data by emailing us</li>
+  </ul>
 
-  <h2>📝 Terms of Service</h2>
-  <p>By using Zantray you agree to use the app for lawful purposes only. You may not use Zantray to send spam, harass other users, or violate any applicable laws. We reserve the right to suspend accounts that violate these terms.</p>
+  <h2>9. Children's Privacy</h2>
+  <p>Zantray is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us immediately at zantray.support@gmail.com.</p>
 
-  <h2>✉️ Contact Us</h2>
-  <p>If you have any questions about this Privacy Policy or our Terms of Service please contact us at:</p>
-  <p><strong>Email:</strong> <a href="mailto:zantray.support@gmail.com" style="color:#FF6B35;">zantray.support@gmail.com</a></p>
-  <p><strong>Website:</strong> <a href="https://stantheman29.github.io/zantray-website" style="color:#FF6B35;">stantheman29.github.io/zantray-website</a></p>
+  <h2>10. Data Retention</h2>
+  <p>We retain your personal data for as long as your account is active. If you delete your account, we will delete your personal data within 30 days. Status updates are automatically deleted after 24 hours.</p>
+
+  <h2>11. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. Continued use of Zantray after changes constitutes acceptance of the new policy.</p>
+
+  <h2>12. Terms of Service</h2>
+  <p>By using Zantray you agree to:</p>
+  <ul>
+    <li>Use the app for lawful purposes only</li>
+    <li>Not send spam, harass other users, or post inappropriate content</li>
+    <li>Not impersonate other users or organizations</li>
+    <li>Not attempt to hack, reverse engineer, or disrupt the service</li>
+    <li>Respect the privacy of other users</li>
+  </ul>
+  <p>We reserve the right to suspend or terminate accounts that violate these terms without notice.</p>
+
+  <h2>13. Contact Us</h2>
+  <p>If you have any questions about this Privacy Policy please contact us:</p>
+  <ul>
+    <li><strong>Email:</strong> zantray.support@gmail.com</li>
+    <li><strong>Website:</strong> stantheman29.github.io/zantray-website</li>
+    <li><strong>Company:</strong> 4EPENG LLC</li>
+  </ul>
 </div>
 
 <footer>
   <p>© 2026 Zantray · <a href="index.html">Home</a> · <a href="mailto:zantray.support@gmail.com">Contact</a></p>
+  <p style="margin-top:8px">Made with ❤️ for the Haitian community · 4EPENG LLC</p>
 </footer>
 
 </body>
